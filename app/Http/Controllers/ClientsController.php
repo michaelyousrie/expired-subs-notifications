@@ -10,4 +10,9 @@ class ClientsController extends Controller
     {
         return view('clients');
     }
+
+    public function create()
+    {
+        return view('add_client');
+    }
 }

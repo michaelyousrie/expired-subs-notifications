@@ -6,7 +6,7 @@
     </div>
 
     <div class="col-md-2 mt-2">
-        <a href="#" class="btn btn-primary text-light"><i class="fa fa-plus"></i> Add Client</a>
+        <a href="{{ route('clients.create') }}" class="btn btn-primary text-light"><i class="fa fa-plus"></i> Add Client</a>
     </div>
 </div>
 

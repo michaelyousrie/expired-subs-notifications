@@ -12,6 +12,9 @@ class ClientSeeder extends Seeder
      */
     public function run()
     {
-        factory(Client::class, 10)->create();
+        factory(Client::class, 5)->create();
+        factory(Client::class, 5)->create([
+            'sub_end_date'  => now()->subYear()
+        ]);
     }
 }

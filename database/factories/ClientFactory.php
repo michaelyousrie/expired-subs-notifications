@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Client::class, function (Faker $faker) {
     return [
-        'name'          => $faker->word,
+        'name'          => $faker->name,
         'join_date'     => now(),
         'sub_end_date'  => now()->addYear(),
         'bundle_name'   => $faker->word

@@ -9,7 +9,7 @@
         <a href="{{ route('clients.create') }}" class="btn btn-primary text-light"><i class="fa fa-plus"></i> Add Client</a>
     </div>
 </div>
-
+@if(count($clients))
 <table class="table">
     <thead>
         <th>#</th>
@@ -39,7 +39,15 @@
                 </td>
                 <td>
                     @if($client->hasExpired())
-                        <button class="btn btn-success" title="Notify User"><i class="fa fa-send"></i></button>
+                        <form action="#" method="post" class="form-inline">
+                            @csrf
+                            <button type="submit" class="btn btn-success" title="Notify User"><i class="fa fa-send"></i></button>
+                        </form>
+
+                        <form action="#" method="post" class="form-inline">
+                            @csrf
+                            <button type="submit" class="btn btn-info" title="Extend Subscription by 1 year"><i class="fa fa-plus"></i></button>
+                        </form>
                     @endif
                     <a href="{{ route('clients.edit', ['client' => $client->id]) }}" class="btn btn-primary" title="Edit User"><i class="fa fa-edit"></i></a>
 
@@ -53,4 +61,8 @@
         @endforeach
     </tbody>
 </table>
+@else
+    <hr>
+    <h3 class="text-center">No Clients yet <i class="fa fa-frown-o"></i></h3>
+@endif
 @endsection

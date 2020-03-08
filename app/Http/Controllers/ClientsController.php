@@ -50,7 +50,7 @@ class ClientsController extends Controller
     public function extendSubscription(Client $client, MessageBag $errors)
     {
         if (!$client->hasExpired()) {
-            $errors->add('key', 'This client has not expired yet!');
+            $errors->add('client_not_expired', 'This client has not expired yet!');
 
             return redirect()->back()->withErrors($errors);
         }

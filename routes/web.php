@@ -19,3 +19,6 @@ Route::patch('/clients/{client}', 'ClientsController@patch')
 
 Route::delete('/clients/{client}', 'ClientsController@destroy')
     ->name('clients.destroy');
+
+Route::post('/clients/{client}/extend', 'ClientsController@extendSubscription')
+    ->name('clients.extend');

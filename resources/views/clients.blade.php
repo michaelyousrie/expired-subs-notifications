@@ -9,6 +9,16 @@
         <a href="{{ route('clients.create') }}" class="btn btn-primary text-light"><i class="fa fa-plus"></i> Add Client</a>
     </div>
 </div>
+@if ($errors->any())
+<hr>
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 @if(count($clients))
 <table class="table">
     <thead>
@@ -44,11 +54,12 @@
                             <button type="submit" class="btn btn-success" title="Notify User"><i class="fa fa-send"></i></button>
                         </form>
 
-                        <form action="#" method="post" class="form-inline">
+                        <form action="{{ route('clients.extend', ['client' => $client->id]) }}" method="post" class="form-inline">
                             @csrf
                             <button type="submit" class="btn btn-info" title="Extend Subscription by 1 year"><i class="fa fa-plus"></i></button>
                         </form>
                     @endif
+
                     <a href="{{ route('clients.edit', ['client' => $client->id]) }}" class="btn btn-primary" title="Edit User"><i class="fa fa-edit"></i></a>
 
                     <form class="form-inline" action="{{ route('clients.destroy', ['client' => $client->id]) }}" method="post">

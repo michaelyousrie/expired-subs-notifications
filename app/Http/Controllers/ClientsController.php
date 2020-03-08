@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Client;
 use App\Http\Requests\CreateClientRequest;
 use App\Http\Requests\UpdateClientRequest;
+use Illuminate\Support\MessageBag;
 
 class ClientsController extends Controller
 {
@@ -44,5 +45,18 @@ class ClientsController extends Controller
         $client->delete();
 
         return redirect()->route('clients');
+    }
+
+    public function extendSubscription(Client $client, MessageBag $errors)
+    {
+        if (!$client->hasExpired()) {
+            $errors->add('key', 'This client has not expired yet!');
+
+            return redirect()->back()->withErrors($errors);
+        }
+
+        $client->extendSubscription();
+
+        return redirect()->back();
     }
 }

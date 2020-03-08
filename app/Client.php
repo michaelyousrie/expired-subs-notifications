@@ -29,4 +29,9 @@ class Client extends Model
     {
         $q->whereDate('sub_end_date', '<', now());
     }
+
+    public function extendSubscription()
+    {
+        return $this->update(['sub_end_date' => now()->addYear()]);
+    }
 }

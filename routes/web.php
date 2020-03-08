@@ -16,3 +16,6 @@ Route::post('/clients', 'ClientsController@store')
 
 Route::patch('/clients/{client}', 'ClientsController@patch')
     ->name('clients.patch');
+
+Route::delete('/clients/{client}', 'ClientsController@destroy')
+    ->name('clients.destroy');

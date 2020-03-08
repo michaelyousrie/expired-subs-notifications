@@ -42,7 +42,12 @@
                         <button class="btn btn-success" title="Notify User"><i class="fa fa-send"></i></button>
                     @endif
                     <a href="{{ route('clients.edit', ['client' => $client->id]) }}" class="btn btn-primary" title="Edit User"><i class="fa fa-edit"></i></a>
-                    <button class="btn btn-danger" title="delete user"><i class="fa fa-remove"></i></button>
+
+                    <form class="form-inline" action="{{ route('clients.destroy', ['client' => $client->id]) }}" method="post">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-danger" title="delete user"><i class="fa fa-remove"></i></button>
+                    </form>
                 </td>
             </tr>
         @endforeach

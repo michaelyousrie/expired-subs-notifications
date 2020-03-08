@@ -38,4 +38,11 @@ class ClientsController extends Controller
 
         return redirect()->route('clients');
     }
+
+    public function destroy(Client $client)
+    {
+        $client->delete();
+
+        return redirect()->route('clients');
+    }
 }

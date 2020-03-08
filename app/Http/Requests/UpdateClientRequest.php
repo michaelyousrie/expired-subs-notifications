@@ -24,7 +24,8 @@ class UpdateClientRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'  => "required|unique:clients,name,{$this->client->id}",
+            'name'          => "required|unique:clients,name,{$this->client->id}",
+            'email'         => "required|unique:clients,email,{$this->client->id}",
             'join_date'     => 'required|date',
             'sub_end_date'  => 'required|date|after:join_date',
             'bundle_name'   => 'required'

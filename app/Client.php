@@ -34,4 +34,18 @@ class Client extends Model
     {
         return $this->update(['sub_end_date' => now()->addYear()]);
     }
+
+    public function notifyAboutExpiry()
+    {
+        // $this->sendExpiryEmail();
+
+        /** Since we don't have a mail server, well just log that we notified the user instead. 
+         * However, if a mail server has been configured...
+         * Uncomment the above line to actually send an email
+         */
+    }
+
+    protected function sendExpiryEmail()
+    {
+    }
 }

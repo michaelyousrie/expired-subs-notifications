@@ -25,6 +25,7 @@ class CreateClientRequest extends FormRequest
     {
         return [
             'name'          => 'required|unique:clients,name',
+            'email'         => 'required|unique:clients,email',
             'join_date'     => 'required|date',
             'sub_end_date'  => 'required|date|after:join_date',
             'bundle_name'   => 'required'

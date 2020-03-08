@@ -25,6 +25,7 @@
         <th>#</th>
         <th>ID</th>
         <th>Name</th>
+        <th>Email</th>
         <th>Join Date</th>
         <th>Sub End Date</th>
         <th>Bundle Name</th>
@@ -37,6 +38,7 @@
                 <td>{{$index + 1}}</td>
                 <td>{{ $client->id }}</td>
                 <td>{{ $client->name }}</td>
+                <td>{{ $client->email }}</td>
                 <td>{{ $client->join_date->format('d-m-Y') }} <span class="critical">({{ $client->join_date->diffForHumans() }})</span></td>
                 <td>{{ $client->sub_end_date->format('d-m-Y') }} <span class="critical">({{ $client->sub_end_date->diffForHumans() }})</span></td>
                 <td>{{ $client->bundle_name }}</td>

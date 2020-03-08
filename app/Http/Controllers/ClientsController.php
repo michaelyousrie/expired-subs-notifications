@@ -60,8 +60,14 @@ class ClientsController extends Controller
         return redirect()->back();
     }
 
-    public function notifyAboutSubscriptionExpiry(Client $client)
+    public function notifyAboutSubscriptionExpiry(Client $client, MessageBag $errors)
     {
+        if (!$client->hasExpired()) {
+            $errors->add('client_not_expired', 'This client has not expired yet!');
+
+            return redirect()->back()->withErrors($errors);
+        }
+
         $client->notifyAboutExpiry();
 
         return redirect()->back();

@@ -11,7 +11,7 @@
 </div>
 <hr>
 
-<form class="form" action="#" method="post">
+<form class="form" action="{{ route('clients.store') }}" method="post">
     @csrf
     <div class="form-group">
         <label for="name">Client Name</label>
@@ -34,5 +34,16 @@
     </div>
     <br>
     <button type="submit" class="btn btn-block btn-success">Create Client</button>
+
+    @if ($errors->any())
+        <hr>
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 </form>
 @endsection

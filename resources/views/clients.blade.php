@@ -13,6 +13,7 @@
 <table class="table">
     <thead>
         <th>#</th>
+        <th>ID</th>
         <th>Name</th>
         <th>Join Date</th>
         <th>Sub End Date</th>
@@ -24,6 +25,7 @@
         @foreach($clients as $index => $client)
             <tr>
                 <td>{{$index + 1}}</td>
+                <td>{{ $client->id }}</td>
                 <td>{{ $client->name }}</td>
                 <td>{{ $client->join_date->format('d-m-Y') }} <span class="critical">({{ $client->join_date->diffForHumans() }})</span></td>
                 <td>{{ $client->sub_end_date->format('d-m-Y') }} <span class="critical">({{ $client->sub_end_date->diffForHumans() }})</span></td>

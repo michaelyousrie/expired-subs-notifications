@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Client extends Model
 {
+    protected $fillable = [
+        'name', 'join_date', 'sub_end_date', 'bundle_name'
+    ];
+
     protected $dates = [
         'join_date', 'sub_end_date'
     ];

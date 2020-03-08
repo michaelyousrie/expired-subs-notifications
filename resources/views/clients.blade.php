@@ -53,21 +53,21 @@
                     @if($client->hasExpired())
                         <form action="{{ route('clients.notify', ['client' => $client->id]) }}" method="post" class="form-inline">
                             @csrf
-                            <button type="submit" class="btn btn-success" title="Notify User"><i class="fa fa-send"></i></button>
+                            <button type="submit" class="btn btn-success" title="Notify Client"><i class="fa fa-send"></i></button>
                         </form>
 
                         <form action="{{ route('clients.extend', ['client' => $client->id]) }}" method="post" class="form-inline">
                             @csrf
-                            <button type="submit" class="btn btn-info" title="Extend Subscription by 1 year"><i class="fa fa-plus"></i></button>
+                            <button type="submit" class="btn btn-info" title="Extend Subscription By 1 Year"><i class="fa fa-plus"></i></button>
                         </form>
                     @endif
 
-                    <a href="{{ route('clients.edit', ['client' => $client->id]) }}" class="btn btn-primary" title="Edit User"><i class="fa fa-edit"></i></a>
+                    <a href="{{ route('clients.edit', ['client' => $client->id]) }}" class="btn btn-primary" title="Edit Client"><i class="fa fa-edit"></i></a>
 
                     <form class="form-inline" action="{{ route('clients.destroy', ['client' => $client->id]) }}" method="post">
                         @csrf
                         @method('delete')
-                        <button type="submit" class="btn btn-danger" title="delete user"><i class="fa fa-remove"></i></button>
+                        <button type="submit" class="btn btn-danger" title="Delete Client"><i class="fa fa-remove"></i></button>
                     </form>
                 </td>
             </tr>

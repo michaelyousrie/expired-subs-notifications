@@ -2,6 +2,9 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SubscriptionExpiredEmail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -37,15 +40,19 @@ class Client extends Model
 
     public function notifyAboutExpiry()
     {
-        // $this->sendExpiryEmail();
-
         /** Since we don't have a mail server, well just log that we notified the user instead. 
          * However, if a mail server has been configured...
-         * Uncomment the above line to actually send an email
+         * Uncomment the below line to actually send an email to the client
          */
+
+        // $this->sendExpiryEmail();
+
+        Log::alert("Expiry email being sent to `{$this->email}`");
     }
 
     protected function sendExpiryEmail()
     {
+        Mail::to($this->email)
+            ->send(new SubscriptionExpiredEmail($this));
     }
 }

@@ -51,7 +51,7 @@
                 </td>
                 <td>
                     @if($client->hasExpired())
-                        <form action="#" method="post" class="form-inline">
+                        <form action="{{ route('clients.notify', ['client' => $client->id]) }}" method="post" class="form-inline">
                             @csrf
                             <button type="submit" class="btn btn-success" title="Notify User"><i class="fa fa-send"></i></button>
                         </form>

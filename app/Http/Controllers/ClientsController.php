@@ -59,4 +59,11 @@ class ClientsController extends Controller
 
         return redirect()->back();
     }
+
+    public function notifyAboutSubscriptionExpiry(Client $client)
+    {
+        $client->notifyAboutExpiry();
+
+        return redirect()->back();
+    }
 }

@@ -22,3 +22,6 @@ Route::delete('/clients/{client}', 'ClientsController@destroy')
 
 Route::post('/clients/{client}/extend', 'ClientsController@extendSubscription')
     ->name('clients.extend');
+
+Route::post('/clients/{client}/notify', 'ClientsController@notifyAboutSubscriptionExpiry')
+    ->name('clients.notify');

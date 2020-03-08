@@ -20,19 +20,19 @@
         <th>Actions</th>
     </thead>
     <tbody>
-        @for($i=1; $i<=10; $i++)
+        @foreach($clients as $index => $client)
             <tr>
-                <td>1</td>
-                <td>Michael</td>
-                <td>Today</td>
-                <td>In A Year</td>
-                <td>Premium 1</td>
+                <td>{{$index + 1}}</td>
+                <td>{{ $client->name }}</td>
+                <td>{{ $client->join_date->format('d-m-Y') }} <span class="critical">({{ $client->join_date->diffForHumans() }})</span></td>
+                <td>{{ $client->sub_end_date->format('d-m-Y') }} <span class="critical">({{ $client->join_date->diffForHumans() }})</span></td>
+                <td>{{ $client->bundle_name }}</td>
                 <td>
                     <button class="btn btn-success" title="Notify User"><i class="fa fa-send"></i></button>
                     <button class="btn btn-danger" title="delete user"><i class="fa fa-remove"></i></button>
                 </td>
             </tr>
-        @endfor
+        @endforeach
     </tbody>
 </table>
 @endsection

@@ -16,3 +16,10 @@ nav h1{
     font-family: sans-serif;
     color: #e8e8e8;
 }
+
+.critical {
+    color: rgb(169, 45, 45);
+    font-style: italic;
+    font-weight: bold;
+    font-size: 0.7em;
+}

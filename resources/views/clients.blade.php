@@ -17,6 +17,7 @@
         <th>Join Date</th>
         <th>Sub End Date</th>
         <th>Bundle Name</th>
+        <th>Status</th>
         <th>Actions</th>
     </thead>
     <tbody>
@@ -27,6 +28,13 @@
                 <td>{{ $client->join_date->format('d-m-Y') }} <span class="critical">({{ $client->join_date->diffForHumans() }})</span></td>
                 <td>{{ $client->sub_end_date->format('d-m-Y') }} <span class="critical">({{ $client->sub_end_date->diffForHumans() }})</span></td>
                 <td>{{ $client->bundle_name }}</td>
+                <td>
+                    @if($client->hasExpired())
+                        <span class="text-danger">Expired!</span>
+                    @else
+                        <span class="text-success">Healthy!</span>
+                    @endif
+                </td>
                 <td>
                     @if($client->hasExpired())
                         <button class="btn btn-success" title="Notify User"><i class="fa fa-send"></i></button>

@@ -40,7 +40,7 @@ class Client extends Model
 
     public function notifyAboutExpiry()
     {
-        /** Since we don't have a mail server, well just log that we notified the user instead. 
+        /** Since we don't have a mail server, we'll just log that we notified the user instead. 
          * However, if a mail server has been configured...
          * Uncomment the below line to actually send an email to the client
          */
